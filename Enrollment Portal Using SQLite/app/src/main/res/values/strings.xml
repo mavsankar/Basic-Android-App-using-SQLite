@@ -15,4 +15,7 @@
     <string name="search_with_rollno">Search with Rollno</string>
     <string name="search">Search</string>
     <string name="go_to_search_page">Go to Search page</string>
+    <string name="search_with_keyword">Search with Keyword</string>
+    <string name="keyword">Keyword</string>
+    <string name="ksearch">keysearch</string>
 </resources>
