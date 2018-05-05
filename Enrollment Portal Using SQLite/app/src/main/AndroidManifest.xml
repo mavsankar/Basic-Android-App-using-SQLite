@@ -24,6 +24,10 @@
         <activity
             android:name=".Delete"
             android:label="@string/title_activity_delete"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Menu"
+            android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

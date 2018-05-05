@@ -14,7 +14,7 @@ public class InsertActivity extends AppCompatActivity {
 
     dbhelper enrollment;
     EditText editsem,editgen,editfn,editln,editdob,editfees,editcgpa,editdno;
-    Button insertbutton,viewallbutton,gotosearch;
+    Button insertbutton,viewallbutton,gotomenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,18 +31,18 @@ public class InsertActivity extends AppCompatActivity {
         editdno=(EditText)findViewById(R.id.editText9);
         insertbutton=(Button)findViewById(R.id.buttonins);
         viewallbutton=(Button)findViewById(R.id.buttonviewall);
-        gotosearch=(Button)findViewById(R.id.search);
+        gotomenu=(Button)findViewById(R.id.menu);
         insertintostudent();
         viewallstudent();
-        gotosearch();
+        gotomenu1();
     }
-    public  void gotosearch()
+    public void gotomenu1()
     {
-        gotosearch.setOnClickListener(
+        gotomenu.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent searchpage = new Intent(v.getContext(),SearchActivity.class);
+                        Intent searchpage = new Intent(v.getContext(),Menu.class);
                         startActivity(searchpage);
                     }
                 }

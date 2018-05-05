@@ -70,19 +70,30 @@
                 app:layout_constraintTop_toTopOf="@+id/ScrollView"
                 app:layout_constraintVertical_bias="0.304" />
 
-            <Button
-                android:id="@+id/gotoupdate"
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/update" />
+                android:text="@string/search_with_keyword"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/keywordsearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/keyword"
+                android:inputType="textNoSuggestions|textPersonName"
+                android:singleLine="false" />
 
             <Button
-                android:id="@+id/gotodelete"
+                android:id="@+id/keywordbutton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Delete!"
-                tools:layout_editor_absoluteX="148dp"
-                tools:layout_editor_absoluteY="291dp" />
+                android:text="@string/ksearch"
+                tools:layout_editor_absoluteX="86dp"
+                tools:layout_editor_absoluteY="305dp" />
         </LinearLayout>
     </ScrollView>
 

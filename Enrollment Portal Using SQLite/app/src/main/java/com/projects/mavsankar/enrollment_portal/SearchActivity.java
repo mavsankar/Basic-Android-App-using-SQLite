@@ -9,82 +9,91 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class SearchActivity extends InsertActivity  {
+public class SearchActivity extends Menu  {
 
     dbhelper enrollment;
     EditText getroll;
-    Button searchbutton,gotoupdate,gotodelete;
+    Button searchbutton;
+    EditText getkey;
+    Button keywordbutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         enrollment = new dbhelper(this);
-        getroll=(EditText)findViewById(R.id.rollsearch);
-        searchbutton=(Button)findViewById(R.id.searchbutton);
-        gotoupdate=(Button)findViewById(R.id.gotoupdate);
-        gotodelete=(Button)findViewById(R.id.gotodelete);
+        getroll = (EditText) findViewById(R.id.rollsearch);
+        getkey = (EditText) findViewById(R.id.keywordsearch);
+        keywordbutton = (Button) findViewById(R.id.keywordbutton);
+        searchbutton = (Button) findViewById(R.id.searchbutton);
         searchtable1();
-        gotoupdate1();
-        gotodelete1();
+        keywordsearch1();
     }
-    public void gotoupdate1()
-    {
-        gotoupdate.setOnClickListener(
+
+    public void keywordsearch1() {
+
+        keywordbutton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent update = new Intent(v.getContext(),UpdateActivity.class);
-                        startActivity(update);
+                        Cursor result = enrollment.keywordsearch1(getkey.getText().toString());
+
+                        if (result.getCount() == 0) {
+                            showmsg("Error", "Nothing Found");
+                            return;
+                        }
+                        StringBuffer buffer = new StringBuffer();
+
+                        while (result.moveToNext()) {
+                            buffer.append("ROLL:" + result.getString(0) + "\n");
+                            buffer.append("FIRST NAME:" + result.getString(3) + "\n");
+                            buffer.append("LAST NAME:" + result.getString(4) + "\n");
+                            buffer.append("SEMESTER:" + result.getString(1) + "\n");
+                            buffer.append("DATE OF BIRTH:" + result.getString(5) + "\n");
+                            buffer.append("GENDER:" + result.getString(2) + "\n");
+                            buffer.append("DEPARTMENT:" + result.getString(8) + "\n");
+                            buffer.append("CGPA:" + result.getString(7) + "\n");
+                            buffer.append("FEES:" + result.getString(6) + "\n");
+
+                        }
+                        showmsg("Data", buffer.toString());
+
                     }
                 }
         );
     }
-    public void gotodelete1()
-    {
-        gotodelete.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent X = new Intent(v.getContext(),Delete.class);
-                        startActivity(X);
-                    }
-                }
-        );
-    }
-    public void searchtable1()
-    {
+
+    public void searchtable1() {
 
         searchbutton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Cursor result = enrollment.searchtable1(getroll.getText().toString());
-                        if (result.getCount() == 0){
-                            showmsg("Error","Nothing Found");
+                        if (result.getCount() == 0) {
+                            showmsg("Error", "Nothing Found");
                             return;
                         }
-                        StringBuffer buffer=new StringBuffer();
+                        StringBuffer buffer = new StringBuffer();
 
-                        while(result.moveToNext())
-                        {
-                            buffer.append("ROLL:"+ result.getString(0)+"\n");
-                            buffer.append("FIRST NAME:"+ result.getString(3)+"\n");
-                            buffer.append("LAST NAME:"+ result.getString(4)+"\n");
-                            buffer.append("SEMESTER:"+ result.getString(1)+"\n");
-                            buffer.append("DATE OF BIRTH:"+ result.getString(5)+"\n");
-                            buffer.append("GENDER:"+ result.getString(2)+"\n");
-                            buffer.append("DEPARTMENT:"+ result.getString(8)+"\n");
-                            buffer.append("CGPA:"+ result.getString(7)+"\n");
-                            buffer.append("FEES:"+ result.getString(6)+"\n");
+                        while (result.moveToNext()) {
+                            buffer.append("ROLL:" + result.getString(0) + "\n");
+                            buffer.append("FIRST NAME:" + result.getString(3) + "\n");
+                            buffer.append("LAST NAME:" + result.getString(4) + "\n");
+                            buffer.append("SEMESTER:" + result.getString(1) + "\n");
+                            buffer.append("DATE OF BIRTH:" + result.getString(5) + "\n");
+                            buffer.append("GENDER:" + result.getString(2) + "\n");
+                            buffer.append("DEPARTMENT:" + result.getString(8) + "\n");
+                            buffer.append("CGPA:" + result.getString(7) + "\n");
+                            buffer.append("FEES:" + result.getString(6) + "\n");
 
                         }
-                        showmsg("Data",buffer.toString());
+                        showmsg("Data", buffer.toString());
 
                     }
                 }
         );
-
     }
+
     public  void showmsg(String title,String Message){
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
         builder.setCancelable(true);

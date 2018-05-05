@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Delete extends SearchActivity {
+public class Delete extends Menu {
 
     dbhelper enrollment;
     EditText rollno;

@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class UpdateActivity extends SearchActivity {
+public class UpdateActivity extends Menu {
 
     dbhelper enrollment;
     EditText editsem,editgen,editfn,editln,editdob,editfees,editcgpa,editdno,rollno;

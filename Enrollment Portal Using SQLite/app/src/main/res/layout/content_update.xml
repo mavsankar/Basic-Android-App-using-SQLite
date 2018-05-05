@@ -16,7 +16,7 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="53dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             tools:layout_editor_absoluteX="18dp"
             tools:layout_editor_absoluteY="11dp"

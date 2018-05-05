@@ -63,12 +63,14 @@ public class dbhelper extends SQLiteOpenHelper {
         Cursor result = db.rawQuery("select * from "+table1,null);
         return result;
     }
+
     public Cursor searchtable1(String rollno){
         SQLiteDatabase db= this.getWritableDatabase();
         String q="select * from "+table1+ " where ROLL = "+ rollno;
         Cursor result = db.rawQuery(q,null);
         return result;
     }
+
     public String updatetable(String rollno, String fn, String ln, String sem, String dob, String gen, String dept, String cgpa, String fee){
         if (rollno.length() == 0)
             return "Roll No. can't be empty!";
@@ -173,7 +175,7 @@ public class dbhelper extends SQLiteOpenHelper {
         return "Updated";
     }
 
-    public String deleterecord(String rollno){
+    public String deleterecord(String rollno) {
         if (rollno.length() == 0)
             return "Roll No. can't be empty!";
         SQLiteDatabase db = this.getWritableDatabase();
@@ -182,5 +184,13 @@ public class dbhelper extends SQLiteOpenHelper {
         res.moveToFirst();
         res.close();
         return "Deleted!";
+    }
+
+    public Cursor keywordsearch1(String keyword){
+        SQLiteDatabase db= this.getWritableDatabase();
+        String q="select * from "+table1+ " where ROLL LIKE " + "'%" + keyword + "%'" + " OR SEMESTER LIKE " + "'%" + keyword + "%'"
+                + " OR FNAME LIKE " + "'%" + keyword + "%'" + " OR LNAME LIKE " + "'%" + keyword + "%'" + " OR DOB LIKE " + "'%" + keyword + "%'" ;
+        Cursor result1 = db.rawQuery(q,null);
+        return result1;
     }
 }
