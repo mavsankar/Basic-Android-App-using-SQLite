@@ -1,5 +1,6 @@
 package com.projects.mavsankar.enrollment_portal;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -8,23 +9,26 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class SearchActivity extends InsertActivity  {
+public class SearchActivity extends Menu  {
 
     dbhelper enrollment;
-    EditText getroll,getkey;
-    Button searchbutton,keywordbutton;
+    EditText getroll;
+    Button searchbutton;
+    EditText getkey;
+    Button keywordbutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         enrollment = new dbhelper(this);
-        getroll=(EditText)findViewById(R.id.rollsearch);
-        getkey=(EditText)findViewById(R.id.keywordsearch);
-        keywordbutton=(Button)findViewById(R.id.keywordbutton);
-        searchbutton=(Button)findViewById(R.id.searchbutton);
+        getroll = (EditText) findViewById(R.id.rollsearch);
+        getkey = (EditText) findViewById(R.id.keywordsearch);
+        keywordbutton = (Button) findViewById(R.id.keywordbutton);
+        searchbutton = (Button) findViewById(R.id.searchbutton);
         searchtable1();
         keywordsearch1();
     }
+
     public void keywordsearch1() {
 
         keywordbutton.setOnClickListener(
@@ -56,8 +60,8 @@ public class SearchActivity extends InsertActivity  {
                     }
                 }
         );
-
     }
+
     public void searchtable1() {
 
         searchbutton.setOnClickListener(
@@ -90,7 +94,7 @@ public class SearchActivity extends InsertActivity  {
         );
     }
 
-        public  void showmsg(String title,String Message){
+    public  void showmsg(String title,String Message){
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
         builder.setCancelable(true);
         builder.setTitle(title);

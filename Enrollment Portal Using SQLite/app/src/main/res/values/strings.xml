@@ -10,12 +10,16 @@
     <string name="fee_receipt_due">FEE(RECEIPT#/DUE)</string>
     <string name="last_name">LAST NAME</string>
     <string name="gender">GENDER</string>
-    <string name="textview">TextView</string>
     <string name="roll_no">Roll no.</string>
-    <string name="search_with_rollno">Search with Rollno</string>
     <string name="search">Search</string>
     <string name="go_to_search_page">Go to Search page</string>
+    <string name="title_activity_update">UpdateActivity</string>
+    <string name="update">Update!</string>
+    <string name="textview">TextView</string>
+    <string name="search_with_rollno">Search with Rollno</string>
+    <string name="title_activity_delete">Delete</string>
     <string name="search_with_keyword">Search with Keyword</string>
     <string name="keyword">Keyword</string>
     <string name="ksearch">keysearch</string>
+    <string name="title_activity_menu">Menu</string>
 </resources>

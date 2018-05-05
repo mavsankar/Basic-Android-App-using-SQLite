@@ -104,10 +104,10 @@
                     android:text="@string/view_all" />
 
                 <Button
-                    android:id="@+id/search"
+                    android:id="@+id/menu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/go_to_search_page" />
+                    android:text="More Options" />
 
             </LinearLayout>
 
