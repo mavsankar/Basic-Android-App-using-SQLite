@@ -1,5 +1,6 @@
 package com.projects.mavsankar.enrollment_portal;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +13,7 @@ public class SearchActivity extends InsertActivity  {
 
     dbhelper enrollment;
     EditText getroll;
-    Button searchbutton;
+    Button searchbutton,gotoupdate,gotodelete;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,9 +21,36 @@ public class SearchActivity extends InsertActivity  {
         enrollment = new dbhelper(this);
         getroll=(EditText)findViewById(R.id.rollsearch);
         searchbutton=(Button)findViewById(R.id.searchbutton);
+        gotoupdate=(Button)findViewById(R.id.gotoupdate);
+        gotodelete=(Button)findViewById(R.id.gotodelete);
         searchtable1();
+        gotoupdate1();
+        gotodelete1();
     }
-
+    public void gotoupdate1()
+    {
+        gotoupdate.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent update = new Intent(v.getContext(),UpdateActivity.class);
+                        startActivity(update);
+                    }
+                }
+        );
+    }
+    public void gotodelete1()
+    {
+        gotodelete.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent X = new Intent(v.getContext(),Delete.class);
+                        startActivity(X);
+                    }
+                }
+        );
+    }
     public void searchtable1()
     {
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 /**
  * Created by mavsa on 22-04-2018.
@@ -67,5 +68,119 @@ public class dbhelper extends SQLiteOpenHelper {
         String q="select * from "+table1+ " where ROLL = "+ rollno;
         Cursor result = db.rawQuery(q,null);
         return result;
+    }
+    public String updatetable(String rollno, String fn, String ln, String sem, String dob, String gen, String dept, String cgpa, String fee){
+        if (rollno.length() == 0)
+            return "Roll No. can't be empty!";
+        SQLiteDatabase db = this.getWritableDatabase();
+        String q = "update "+table1+" set ";
+        int cnt = 0;
+        if (fn.length() != 0)
+        {
+            cnt++;
+            q = q + FNAME + " = " + "'" + fn + "'";
+        }
+        if (ln.length() != 0)
+        {
+            if (cnt != 0)
+            {
+                q = q + ", " + LNAME + "=" + "'" + ln + "'";
+            }
+            else
+            {
+                q = q + LNAME + "=" + "'" + ln + "'";
+            }
+            cnt++;
+        }
+        if (sem.length() != 0)
+        {
+            if (cnt != 0)
+            {
+                q = q + ", " + SEMESTER + "=" + sem;
+            }
+            else
+            {
+                q = q + SEMESTER + "=" + sem;
+            }
+            cnt++;
+        }
+        if (dob.length() != 0)
+        {
+            if (cnt != 0)
+            {
+                q = q + ", " + DOB + "=" + "'" + dob + "'";
+            }
+            else
+            {
+                q = q + DOB + "=" + "'" + dob + "'";
+            }
+            cnt++;
+        }
+        if (gen.length() != 0)
+        {
+            if (cnt != 0)
+            {
+                q = q + ", " + GENDER + "=" + "'" + gen + "'";
+            }
+            else
+            {
+                q = q + GENDER + "=" + "'" + gen + "'";
+            }
+            cnt++;
+        }
+        if (dept.length() != 0)
+        {
+            if (cnt != 0)
+            {
+                q = q + ", " + DNO + "=" + "'" + dept + "'";
+            }
+            else
+            {
+                q = q + DNO + "=" + "'" + dept + "'";
+            }
+            cnt++;
+        }
+        if (cgpa.length() != 0)
+        {
+            if (cnt != 0)
+            {
+                q = q + ", " + CGPA + "=" + cgpa;
+            }
+            else
+            {
+                q = q + CGPA + "=" + cgpa;
+            }
+            cnt++;
+        }
+        if (fee.length() != 0)
+        {
+            if (cnt != 0)
+            {
+                q = q + ", " + FEES + "=" + "'" + fee + "'";
+            }
+            else
+            {
+                q = q + FEES + "=" + "'" + fee + "'";
+            }
+            cnt++;
+        }
+        q = q + " WHERE " + ROLL + " = " + rollno;
+        if (cnt == 0)
+            return "No updates?";
+        Cursor result = db.rawQuery(q,null);
+        result.moveToFirst();
+        result.close();
+        return "Updated";
+    }
+
+    public String deleterecord(String rollno){
+        if (rollno.length() == 0)
+            return "Roll No. can't be empty!";
+        SQLiteDatabase db = this.getWritableDatabase();
+        String q = "delete from STUDENT where ROLL = " + rollno;
+        Cursor res = db.rawQuery(q, null);
+        res.moveToFirst();
+        res.close();
+        return "Deleted!";
     }
 }

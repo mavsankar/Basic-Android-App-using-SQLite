@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".UpdateActivity"
+    tools:showIn="@layout/activity_update">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            tools:layout_editor_absoluteX="18dp"
+            tools:layout_editor_absoluteY="11dp"
+            tools:text="Update with Rollno" />
+
+        <EditText
+            android:id="@+id/update_rollno"
+            style="@android:style/Widget.AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:hint="@string/roll_no"
+            android:inputType="number"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <EditText
+            android:id="@+id/update_fn"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:ems="10"
+            android:hint="@string/first_name"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="104dp" />
+
+        <EditText
+            android:id="@+id/update_ln"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:ems="10"
+            android:hint="@string/last_name"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="145dp" />
+
+        <EditText
+            android:id="@+id/update_sem"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:ems="10"
+            android:hint="@string/semester"
+            android:inputType="numberSigned"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="185dp" />
+
+        <EditText
+            android:id="@+id/update_dob"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:ems="10"
+            android:hint="@string/date_of_birth"
+            android:inputType="date"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="226dp" />
+
+        <EditText
+            android:id="@+id/update_gen"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:ems="10"
+            android:hint="@string/gender"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="267dp" />
+
+        <EditText
+            android:id="@+id/update_dept"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:ems="10"
+            android:hint="@string/dept"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="308dp" />
+
+        <EditText
+            android:id="@+id/update_cgpa"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:ems="10"
+            android:hint="@string/cgpa"
+            android:inputType="numberDecimal"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="349dp" />
+
+        <EditText
+            android:id="@+id/update_fees"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:ems="10"
+            android:hint="@string/fee_receipt_due"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="390dp" />
+
+        <Button
+            android:id="@+id/updatebutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/update"
+            tools:layout_editor_absoluteX="147dp"
+            tools:layout_editor_absoluteY="431dp" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
