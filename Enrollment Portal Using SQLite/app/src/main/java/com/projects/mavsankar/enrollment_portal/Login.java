@@ -28,10 +28,10 @@ public class Login extends AppCompatActivity {
         editid=(EditText)findViewById(R.id.idnum);
         editpass=(EditText)findViewById(R.id.passwordnum) ;
         signin();
-        registeration();
+        registeration1();
 
     }
-    public void registeration()
+    public void registeration1()
     {
         registerbutton.setOnClickListener(
                 new View.OnClickListener() {
@@ -39,8 +39,8 @@ public class Login extends AppCompatActivity {
                     public void onClick(View view) {
                       //  Toast.makeText(Login.this, " Id should be 9 characters ", Toast.LENGTH_SHORT).show();
 
-                      Intent reg=new Intent(view.getContext(),Menu.class);
-                        startActivity(reg);
+                      Intent reg = new Intent(view.getContext(), RegisterActivity.class);
+                      startActivity(reg);
                     }
                 }
         );
@@ -77,9 +77,6 @@ public class Login extends AppCompatActivity {
                                 menu.putExtra("id_from_login",p);
                                 startActivity(menu);
                             }
-
-
-
                     }
                 }
         );
