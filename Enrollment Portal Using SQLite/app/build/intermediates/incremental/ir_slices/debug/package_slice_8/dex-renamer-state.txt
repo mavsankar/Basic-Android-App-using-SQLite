@@ -1,4 +1,0 @@
-#Sun May 06 15:39:41 IST 2018
-base.0=/Users/macbookpro/Documents/C++/Enrollment_app/New/Basic-Android-App-using-SQLite/Enrollment Portal Using SQLite/app/build/intermediates/transforms/dexMerger/debug/8
-path.0=classes.dex
-renamed.0=classes.dex
