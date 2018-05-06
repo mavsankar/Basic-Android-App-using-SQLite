@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class MenuStudent extends AppCompatActivity {
 
     dbhelper enrollment;
-    Button searchb, updateb;
+    Button searchb, updateb,logoutb;
     String s;
 
 
@@ -27,12 +27,24 @@ public class MenuStudent extends AppCompatActivity {
         enrollment = new dbhelper(this);
         searchb=(Button)findViewById(R.id.ssearchbutton);
         updateb=(Button)findViewById(R.id.supdatebutton);
-
+        logoutb=(Button)findViewById(R.id.logoutbutton);
         gotosearch1();
         gotoupdate1();
-
+        gotologout();
     }
-
+    public void gotologout()
+    {
+        logoutb.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
+                }
+        );
+    }
     public void gotosearch1()
     {
         searchb.setOnClickListener(
