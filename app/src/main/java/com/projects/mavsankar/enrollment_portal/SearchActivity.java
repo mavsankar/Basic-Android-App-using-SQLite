@@ -52,7 +52,7 @@ public class SearchActivity extends AppCompatActivity  {
                             buffer.append("GENDER:" + result.getString(2) + "\n");
                             buffer.append("DEPARTMENT:" + result.getString(8) + "\n");
                             buffer.append("CGPA:" + result.getString(7) + "\n");
-                            buffer.append("FEES:" + result.getString(6) + "\n");
+                            buffer.append("FEES:" + result.getString(6) + "\n\n");
 
                         }
                         showmsg("Data", buffer.toString());
@@ -84,7 +84,7 @@ public class SearchActivity extends AppCompatActivity  {
                             buffer.append("GENDER:" + result.getString(2) + "\n");
                             buffer.append("DEPARTMENT:" + result.getString(8) + "\n");
                             buffer.append("CGPA:" + result.getString(7) + "\n");
-                            buffer.append("FEES:" + result.getString(6) + "\n");
+                            buffer.append("FEES:" + result.getString(6) + "\n\n");
 
                         }
                         showmsg("Data", buffer.toString());
