@@ -64,7 +64,7 @@ public class Login extends AppCompatActivity {
                         }
                             Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
                             String p = editid.getText().toString();
-                          if(p.equals("ADMIN")) {
+                            if(p.equals("ADMIN")) {
                               Toast.makeText(Login.this, "You are an Admin!", Toast.LENGTH_SHORT).show();
 
                              Intent menu1=new Intent(view.getContext(),Menu.class);
