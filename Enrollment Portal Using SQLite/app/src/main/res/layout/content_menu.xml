@@ -16,27 +16,33 @@
 
         <TextView
             android:id="@+id/menutitle"
-            android:layout_width="match_parent"
-            android:layout_height="53dp"
-            android:text="Menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu"
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+        <Button
+            android:id="@+id/enroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/enroll" />
 
         <Button
             android:id="@+id/searchbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Search" />
+            android:text="@string/search" />
 
         <Button
             android:id="@+id/updatebutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Update Record" />
+            android:text="@string/update_record" />
 
         <Button
             android:id="@+id/deletebutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Delete Record" />
+            android:text="@string/delete_record" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

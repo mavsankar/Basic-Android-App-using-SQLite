@@ -10,12 +10,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class UpdateActivity extends Menu {
+public class UpdateActivity extends AppCompatActivity {
 
     dbhelper enrollment;
     EditText editsem,editgen,editfn,editln,editdob,editfees,editcgpa,editdno,rollno;
     Button updatebutton;
+    String s;
+
+    public UpdateActivity()
+    {
+        Intent i=getIntent();
+        if(i!=null)
+            s=i.getStringExtra("id_from_menu");
+    }
+
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
@@ -30,6 +40,7 @@ public class UpdateActivity extends Menu {
         editdno=(EditText)findViewById(R.id.update_dept);
         rollno=(EditText)findViewById(R.id.update_rollno);
         updatebutton=(Button)findViewById(R.id.updatebutton);
+
         updatestudent();
     }
     public void updatestudent()
@@ -38,17 +49,35 @@ public class UpdateActivity extends Menu {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String res = enrollment.updatetable(rollno.getText().toString(),
-                                editfn.getText().toString(),
-                                editln.getText().toString(),
-                                editsem.getText().toString(),
-                                editdob.getText().toString(),
-                                editgen.getText().toString(),
-                                editdno.getText().toString(),
-                                editcgpa.getText().toString(),
-                                editfees.getText().toString()
-                        );
-                        Toast.makeText(UpdateActivity.this,res,Toast.LENGTH_SHORT).show();
+                        if(s.equals("ADMIN")) {
+                            String res = enrollment.updatetable(rollno.getText().toString(),
+                                    editfn.getText().toString(),
+                                    editln.getText().toString(),
+                                    editsem.getText().toString(),
+                                    editdob.getText().toString(),
+                                    editgen.getText().toString(),
+                                    editdno.getText().toString(),
+                                    editcgpa.getText().toString(),
+                                    editfees.getText().toString()
+                            );
+                            Toast.makeText(UpdateActivity.this, res, Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+
+                            String res = enrollment.updatetable(rollno.getText().toString(),
+                                    editfn.getText().toString(),
+                                    editln.getText().toString(),
+                                    editsem.getText().toString(),
+                                    editdob.getText().toString(),
+                                    editgen.getText().toString(),
+                                    editdno.getText().toString(),
+                                    editcgpa.getText().toString(),
+                                    editfees.getText().toString()
+                            );
+                            Toast.makeText(UpdateActivity.this, res, Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 }
         );

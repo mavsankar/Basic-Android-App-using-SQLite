@@ -1,19 +1,21 @@
 package com.projects.mavsankar.enrollment_portal;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.net.Uri;
 
-public class Menu extends Login {
+public class MenuStudent extends AppCompatActivity {
+
     dbhelper enrollment;
-    Button searchb, updateb, deleteb,enroll;
+    Button searchb, updateb;
     String s;
-    public Menu()
+    public MenuStudent()
     {
         Intent i = getIntent();
         if(i!=null)
@@ -23,29 +25,18 @@ public class Menu extends Login {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_menu_student);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         enrollment = new dbhelper(this);
-        searchb=(Button)findViewById(R.id.searchbutton);
-        updateb=(Button)findViewById(R.id.updatebutton);
-        deleteb=(Button)findViewById(R.id.deletebutton);
-        enroll=(Button)findViewById(R.id.enroll);
-        gotoenroll();
+        searchb=(Button)findViewById(R.id.ssearchbutton);
+        updateb=(Button)findViewById(R.id.supdatebutton);
+
         gotosearch1();
         gotoupdate1();
-        gotodelete1();
+
     }
-    public void gotoenroll()
-    {
-        enroll.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent search = new Intent(v.getContext(),InsertActivity.class);
-                        startActivity(search);
-                    }
-                }
-        );
-    }
+
     public void gotosearch1()
     {
         searchb.setOnClickListener(
@@ -67,22 +58,11 @@ public class Menu extends Login {
                     public void onClick(View v) {
                         Intent update = new Intent(v.getContext(),UpdateActivity.class);
                         update.putExtra("id_from_menu",s);
-
                         startActivity(update);
                     }
                 }
         );
     }
-    public void gotodelete1()
-    {
-        deleteb.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent X = new Intent(v.getContext(),Delete.class);
-                        startActivity(X);
-                    }
-                }
-        );
-    }
+
+
 }

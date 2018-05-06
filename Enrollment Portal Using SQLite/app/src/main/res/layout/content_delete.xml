@@ -28,7 +28,7 @@
             android:layout_height="56dp"
             android:ems="10"
             android:hint="Roll No."
-            android:inputType="numberSigned" />
+            android:inputType="textCapCharacters" />
 
         <Button
             android:id="@+id/deletebutton"

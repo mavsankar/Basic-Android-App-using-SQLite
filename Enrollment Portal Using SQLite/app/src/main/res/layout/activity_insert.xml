@@ -20,6 +20,21 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enter_your_details"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/roll_number"
+                    android:inputType="textCapCharacters" />
+
                 <EditText
                     android:id="@+id/editText4"
                     android:layout_width="match_parent"
@@ -102,12 +117,6 @@
                     android:layout_height="wrap_content"
                     android:baselineAligned="false"
                     android:text="@string/view_all" />
-
-                <Button
-                    android:id="@+id/menu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="More Options" />
 
             </LinearLayout>
 

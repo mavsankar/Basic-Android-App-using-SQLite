@@ -10,11 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class InsertActivity extends AppCompatActivity {
+public class InsertActivity extends Menu {
 
     dbhelper enrollment;
-    EditText editsem,editgen,editfn,editln,editdob,editfees,editcgpa,editdno;
-    Button insertbutton,viewallbutton,gotomenu;
+    EditText editsem,editgen,editfn,editln,editdob,editfees,editcgpa,editdno,editroll;
+    Button insertbutton,viewallbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,32 +29,21 @@ public class InsertActivity extends AppCompatActivity {
         editfees=(EditText)findViewById(R.id.editText7);
         editcgpa=(EditText)findViewById(R.id.editText8);
         editdno=(EditText)findViewById(R.id.editText9);
+        editroll=(EditText)findViewById(R.id.editText);
         insertbutton=(Button)findViewById(R.id.buttonins);
         viewallbutton=(Button)findViewById(R.id.buttonviewall);
-        gotomenu=(Button)findViewById(R.id.menu);
+
         insertintostudent();
         viewallstudent();
-        gotomenu1();
     }
-    public void gotomenu1()
-    {
-        gotomenu.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent searchpage = new Intent(v.getContext(),Menu.class);
-                        startActivity(searchpage);
-                    }
-                }
-        );
-    }
+
     public void insertintostudent()
     {
         insertbutton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        boolean isinserted = enrollment.insertintotable1(editsem.getText().toString(),
+                        boolean isinserted = enrollment.insertintotable1(editroll.getText().toString(),editsem.getText().toString(),
                                 editgen.getText().toString(),
                                 editfn.getText().toString(),
                                 editln.getText().toString(),

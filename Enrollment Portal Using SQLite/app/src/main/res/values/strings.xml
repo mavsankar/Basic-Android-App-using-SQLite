@@ -22,4 +22,16 @@
     <string name="keyword">Keyword</string>
     <string name="ksearch">keysearch</string>
     <string name="title_activity_menu">Menu</string>
+    <string name="enroll">Enroll</string>
+    <string name="delete_record">Delete Record</string>
+    <string name="update_record">Update Record</string>
+    <string name="menu">Menu</string>
+    <string name="title_activity_login">Login</string>
+    <string name="id">ID</string>
+    <string name="password">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="register">Register</string>
+    <string name="title_activity_menu_student">MenuStudent</string>
+    <string name="roll_number">ROLL NUMBER</string>
+    <string name="enter_your_details">Enter your Details</string>
 </resources>

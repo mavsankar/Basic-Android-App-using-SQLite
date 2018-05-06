@@ -13,7 +13,9 @@ import android.widget.Toast;
 public class dbhelper extends SQLiteOpenHelper {
     public static  final  String DBname= "ENROLLMENT.db";
     public static  final  String table1= "STUDENT";
+    public static final String tablep="PasswordTable";
     public static  final  String ROLL= "ROLL";
+    public  static final String ID="ID";
     public static  final  String SEMESTER= "SEMESTER";
     public static  final  String GENDER= "GENDER";
     public static  final  String FNAME= "FNAME";
@@ -22,6 +24,7 @@ public class dbhelper extends SQLiteOpenHelper {
     public static  final  String FEES= "FEES";
     public static  final  String CGPA= "CGPA";
     public static  final  String DNO= "DNO";
+    public static  final  String PASSWORD= "PASSWORD";
 
     public dbhelper(Context context) {
         super(context, DBname, null, 1);
@@ -30,17 +33,23 @@ public class dbhelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table "+table1+"(ROLL INTEGER PRIMARY KEY AUTOINCREMENT,SEMESTER INTEGER,GENDER CHAR,FNAME TEXT,LNAME TEXT,DOB DATE,FEES TEXT,CGPA DECIMAL(10,2),DNO TEXT)");
+
+        db.execSQL("create table "+table1+"(ROLL VARCHAR(10) PRIMARY KEY NOT NULL,SEMESTER INTEGER ,GENDER CHAR ,FNAME TEXT ,LNAME TEXT  ,DOB DATE  ,FEES TEXT  ,CGPA DECIMAL(10,2)  ,DNO TEXT  )");
+        db.execSQL("create table "+tablep+ "(ID VARCHAR(10) PRIMARY KEY NOT NULL ,PASSWORD TEXT NOT NULL)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS "+table1);
+        db.execSQL("DROP TABLE IF EXISTS "+tablep);
+
         onCreate(db);
     }
-    public boolean  insertintotable1(String SEM,String GEN,String FN,String LN,String DB,String FEE,String CG,String DNUM){
+    public boolean  insertintotable1(String RNO,String SEM,String GEN,String FN,String LN,String DB,String FEE,String CG,String DNUM){
         SQLiteDatabase db= this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
+        contentValues.put(ROLL,RNO);
+
         contentValues.put(SEMESTER,SEM);
         contentValues.put(GENDER,GEN);
         contentValues.put(FNAME,FN);
@@ -58,6 +67,19 @@ public class dbhelper extends SQLiteOpenHelper {
 
 
     }
+    public boolean register(String idno, String pass){
+
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues contentValues1=new ContentValues();
+        contentValues1.put(ID,idno);
+        contentValues1.put(PASSWORD,pass);
+
+        long result = db.insert(tablep,null,contentValues1);
+        if(result==-1)
+            return false;
+        else
+            return true;
+    }
     public Cursor viewalltable1(){
         SQLiteDatabase db= this.getWritableDatabase();
         Cursor result = db.rawQuery("select * from "+table1,null);
@@ -66,10 +88,18 @@ public class dbhelper extends SQLiteOpenHelper {
 
     public Cursor searchtable1(String rollno){
         SQLiteDatabase db= this.getWritableDatabase();
-        String q="select * from "+table1+ " where ROLL = "+ rollno;
+        String q="select * from "+table1+ " where ROLL = "+ "'" +rollno+"'";
         Cursor result = db.rawQuery(q,null);
         return result;
     }
+
+    public Cursor signin1(String id,String Pass){
+        SQLiteDatabase db= this.getWritableDatabase();
+        String q="select * from "+tablep+ " where ID = "+ "'"+id+"'" + " AND PASSWORD= " + "'" +Pass+"'";
+        Cursor result = db.rawQuery(q,null);
+        return result;
+    }
+
 
     public String updatetable(String rollno, String fn, String ln, String sem, String dob, String gen, String dept, String cgpa, String fee){
         if (rollno.length() == 0)
@@ -166,7 +196,7 @@ public class dbhelper extends SQLiteOpenHelper {
             }
             cnt++;
         }
-        q = q + " WHERE " + ROLL + " = " + rollno;
+        q = q + " WHERE " + ROLL + " = " + "'"+rollno+"'";
         if (cnt == 0)
             return "No updates?";
         Cursor result = db.rawQuery(q,null);
@@ -179,7 +209,7 @@ public class dbhelper extends SQLiteOpenHelper {
         if (rollno.length() == 0)
             return "Roll No. can't be empty!";
         SQLiteDatabase db = this.getWritableDatabase();
-        String q = "delete from STUDENT where ROLL = " + rollno;
+        String q = "delete from STUDENT where ROLL = " + "'" +rollno+"'";
         Cursor res = db.rawQuery(q, null);
         res.moveToFirst();
         res.close();
