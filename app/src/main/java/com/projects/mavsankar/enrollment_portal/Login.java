@@ -16,6 +16,7 @@ public class Login extends AppCompatActivity {
     Button registerbutton,login;
     dbhelper enrollment;
     EditText editid,editpass;
+    String s;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +28,9 @@ public class Login extends AppCompatActivity {
         login=(Button)findViewById(R.id.buttonsignin);
         editid=(EditText)findViewById(R.id.idnum);
         editpass=(EditText)findViewById(R.id.passwordnum) ;
+
+
+
         signin();
         registeration1();
 

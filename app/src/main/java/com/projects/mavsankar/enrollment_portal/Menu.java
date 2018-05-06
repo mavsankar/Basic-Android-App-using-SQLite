@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 public class Menu extends AppCompatActivity {
     dbhelper enrollment;
-    Button searchb, updateb, deleteb,enroll;
+    Button searchb, updateb, deleteb,enroll,logoutbutton1;
     String s;
 
     @Override
@@ -23,10 +23,25 @@ public class Menu extends AppCompatActivity {
         updateb=(Button)findViewById(R.id.updatebutton);
         deleteb=(Button)findViewById(R.id.deletebutton);
         enroll=(Button)findViewById(R.id.enroll);
+        logoutbutton1=(Button)findViewById(R.id.logoutbutton1);
         gotoenroll();
         gotosearch1();
         gotoupdate1();
         gotodelete1();
+        gotologout1();
+    }
+    public void gotologout1()
+    {
+        logoutbutton1.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
+                }
+        );
     }
     public void gotoenroll()
     {
