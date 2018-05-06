@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 public class Menu extends AppCompatActivity {
     dbhelper enrollment;
-    Button searchb, updateb, deleteb,enroll;
+    Button searchb, updateb, deleteb, enroll, feesb;
     String s;
 
     @Override
@@ -23,10 +23,12 @@ public class Menu extends AppCompatActivity {
         updateb=(Button)findViewById(R.id.updatebutton);
         deleteb=(Button)findViewById(R.id.deletebutton);
         enroll=(Button)findViewById(R.id.enroll);
+        feesb =(Button)findViewById(R.id.feesbutton);
         gotoenroll();
         gotosearch1();
         gotoupdate1();
         gotodelete1();
+        gotofees1();
     }
     public void gotoenroll()
     {
@@ -80,5 +82,33 @@ public class Menu extends AppCompatActivity {
                     }
                 }
         );
+    }
+    public void gotofees1()
+    {
+        feesb.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Cursor res = enrollment.feesnotpaid();
+                        if (res.getCount() == 0) {
+                            showmsg("Students yet to pay", "Noone");
+                            return;
+                        }
+                        StringBuffer buffer = new StringBuffer();
+                        while (res.moveToNext()) {
+                            buffer.append(res.getString(0)+"\n");
+                        }
+                        showmsg("Students yet to pay", buffer.toString());
+                    }
+                }
+        );
+    }
+
+    public  void showmsg(String title,String Message){
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(Message);
+        builder.show();
     }
 }

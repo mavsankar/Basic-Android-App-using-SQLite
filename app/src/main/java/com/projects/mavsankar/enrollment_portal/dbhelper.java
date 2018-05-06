@@ -223,4 +223,11 @@ public class dbhelper extends SQLiteOpenHelper {
         Cursor result1 = db.rawQuery(q,null);
         return result1;
     }
+
+    public Cursor feesnotpaid(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String q = "select ROLL from "+table1+" where Lower(FEES) LIKE '%due%'";
+        Cursor res = db.rawQuery(q, null);
+        return res;
+    }
 }

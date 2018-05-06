@@ -34,4 +34,5 @@
     <string name="title_activity_menu_student">MenuStudent</string>
     <string name="roll_number">ROLL NUMBER</string>
     <string name="enter_your_details">Enter your Details</string>
+    <string name="title_activity_fees">"Fees "</string>
 </resources>

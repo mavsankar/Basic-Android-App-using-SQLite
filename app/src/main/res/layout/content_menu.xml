@@ -44,5 +44,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/delete_record" />
+
+        <Button
+            android:id="@+id/feesbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Students with fee due" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
