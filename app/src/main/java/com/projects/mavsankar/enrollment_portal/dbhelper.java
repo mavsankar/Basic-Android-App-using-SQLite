@@ -14,7 +14,12 @@ public class dbhelper extends SQLiteOpenHelper {
     public static  final  String DBname= "ENROLLMENT.db";
     public static  final  String table1= "STUDENT";
     public static final String tablep="PasswordTable";
+    public static final String tablef="FACULTY";
     public static  final  String ROLL= "ROLL";
+    public static  final  String FACNO= "FACNO";
+    public static  final  String ROOM= "ROOM";
+    public static  final  String ADVICES= "ADVICES";
+
     public  static final String ID="ID";
     public static  final  String SEMESTER= "SEMESTER";
     public static  final  String GENDER= "GENDER";
@@ -36,6 +41,7 @@ public class dbhelper extends SQLiteOpenHelper {
 
         db.execSQL("create table "+table1+"(ROLL VARCHAR(10) PRIMARY KEY NOT NULL,SEMESTER INTEGER ,GENDER CHAR ,FNAME TEXT ,LNAME TEXT  ,DOB DATE  ,FEES TEXT  ,CGPA DECIMAL(10,2)  ,DNO TEXT  )");
         db.execSQL("create table "+tablep+ "(ID VARCHAR(10) PRIMARY KEY NOT NULL ,PASSWORD TEXT NOT NULL)");
+        db.execSQL("create table "+tablef+"(FACNO INTEGER PRIMARY KEY AUTOINCREMENT, ROOM TEXT, GENDER CHAR, FNAME TEXT, LNAME TEXT, ADVICES TEXT)");
     }
 
     @Override
@@ -65,6 +71,23 @@ public class dbhelper extends SQLiteOpenHelper {
             return true;
 
 
+
+    }
+    public boolean  insertintotablef(String RM,String GEN,String FN,String LN,String ADV){
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+
+        contentValues.put(ROOM,RM);
+        contentValues.put(GENDER,GEN);
+        contentValues.put(FNAME,FN);
+        contentValues.put(LNAME,LN);
+        contentValues.put(ADVICES,ADV);
+
+        long result = db.insert(tablef,null,contentValues);
+        if(result==-1)
+            return false;
+        else
+            return true;
 
     }
     public boolean register(String idno, String pass){

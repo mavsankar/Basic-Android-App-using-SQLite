@@ -34,7 +34,7 @@ public class InsertFaculty extends Menu {
                     @Override
 
                     public void onClick(View view) {
-                        boolean isins = enrollment.insertintotablef(f);
+                        boolean isins = enrollment.insertintotablef(froom.getText().toString(), fgen.getText().toString(), ffname.getText().toString(), flname.getText().toString(), fadvices.getText().toString());
                         if (isins)
                             Toast.makeText(InsertFaculty.this, "Data Inserted", Toast.LENGTH_SHORT).show();
                         else
