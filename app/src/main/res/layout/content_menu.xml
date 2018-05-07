@@ -31,6 +31,12 @@
                 android:text="@string/enroll" />
 
             <Button
+                android:id="@+id/menu_facb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add new faculty record" />
+
+            <Button
                 android:id="@+id/searchbutton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

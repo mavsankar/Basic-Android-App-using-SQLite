@@ -35,4 +35,5 @@
     <string name="roll_number">ROLL NUMBER</string>
     <string name="enter_your_details">Enter your Details</string>
     <string name="title_activity_fees">"Fees "</string>
+    <string name="title_activity_insert_faculty">Insert Faculty</string>
 </resources>

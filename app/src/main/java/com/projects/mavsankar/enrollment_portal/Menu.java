@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 public class Menu extends AppCompatActivity {
     dbhelper enrollment;
-    Button searchb, updateb, deleteb, enroll, feesb, logoutbutton1;
+    Button searchb, updateb, deleteb, enroll, feesb, logoutbutton1, facb;
     String s;
 
     @Override
@@ -25,12 +25,26 @@ public class Menu extends AppCompatActivity {
         enroll=(Button)findViewById(R.id.enroll);
         feesb =(Button)findViewById(R.id.feesbutton);
         logoutbutton1=(Button)findViewById(R.id.logoutbutton1);
+        facb=(Button)findViewById(R.id.menu_facb);
         gotoenroll();
         gotosearch1();
         gotoupdate1();
         gotodelete1();
         gotofees1();
         gotologout1();
+        gotofac1();
+    }
+    public void gotofac1()
+    {
+        facb.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), InsertFaculty.class);
+                        startActivity(intent);
+                    }
+                }
+        );
     }
     public void gotologout1()
     {
