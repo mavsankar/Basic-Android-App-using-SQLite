@@ -14,7 +14,12 @@ public class dbhelper extends SQLiteOpenHelper {
     public static  final  String DBname= "ENROLLMENT.db";
     public static  final  String table1= "STUDENT";
     public static final String tablep="PasswordTable";
+    public static final String tablef="FACULTY";
     public static  final  String ROLL= "ROLL";
+    public static  final  String FACNO= "FACNO";
+    public static  final  String ROOM= "ROOM";
+    public static  final  String ADVICES= "ADVICES";
+
     public  static final String ID="ID";
     public static  final  String SEMESTER= "SEMESTER";
     public static  final  String GENDER= "GENDER";
@@ -58,6 +63,26 @@ public class dbhelper extends SQLiteOpenHelper {
         contentValues.put(FEES,FEE);
         contentValues.put(CGPA,CG);
         contentValues.put(DNO,DNUM);
+        long result = db.insert(table1,null,contentValues);
+        if(result==-1)
+            return false;
+        else
+            return true;
+
+
+
+    }
+    public boolean  insertintotablef(String FNO,String RM,String GEN,String FN,String LN,String ADV){
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(FACNO,FNO);
+
+        contentValues.put(ROOM,RM);
+        contentValues.put(GENDER,GEN);
+        contentValues.put(FNAME,FN);
+        contentValues.put(LNAME,LN);
+        contentValues.put(ADVICES,ADV);
+
         long result = db.insert(table1,null,contentValues);
         if(result==-1)
             return false;
