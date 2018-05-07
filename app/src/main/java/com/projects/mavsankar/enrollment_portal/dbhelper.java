@@ -41,6 +41,7 @@ public class dbhelper extends SQLiteOpenHelper {
 
         db.execSQL("create table "+table1+"(ROLL VARCHAR(10) PRIMARY KEY NOT NULL,SEMESTER INTEGER ,GENDER CHAR ,FNAME TEXT ,LNAME TEXT  ,DOB DATE  ,FEES TEXT  ,CGPA DECIMAL(10,2)  ,DNO TEXT  )");
         db.execSQL("create table "+tablep+ "(ID VARCHAR(10) PRIMARY KEY NOT NULL ,PASSWORD TEXT NOT NULL)");
+        db.execSQL("create table "+tablef+"(FACNO INTEGER PRIMARY KEY AUTOINCREMENT,ROOM TEXT,GENDER CHAR,FNAME TEXT, LNAME TEXT, ADVICES TEXT )");
     }
 
     @Override
@@ -72,10 +73,10 @@ public class dbhelper extends SQLiteOpenHelper {
 
 
     }
-    public boolean  insertintotablef(String FNO,String RM,String GEN,String FN,String LN,String ADV){
+    public boolean  insertintotablef(String RM,String GEN,String FN,String LN,String ADV){
         SQLiteDatabase db= this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
-        contentValues.put(FACNO,FNO);
+
 
         contentValues.put(ROOM,RM);
         contentValues.put(GENDER,GEN);
@@ -83,7 +84,7 @@ public class dbhelper extends SQLiteOpenHelper {
         contentValues.put(LNAME,LN);
         contentValues.put(ADVICES,ADV);
 
-        long result = db.insert(table1,null,contentValues);
+        long result = db.insert(tablef,null,contentValues);
         if(result==-1)
             return false;
         else
@@ -252,6 +253,12 @@ public class dbhelper extends SQLiteOpenHelper {
     public Cursor feesnotpaid(){
         SQLiteDatabase db = this.getWritableDatabase();
         String q = "select ROLL from "+table1+" where Lower(FEES) LIKE '%due%'";
+        Cursor res = db.rawQuery(q, null);
+        return res;
+    }
+    public Cursor findadvisor(String rollno){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String q = "select * from "+tablef+" where ADVICES IN(select DNO from "+table1+" where ROLL ="+"'"+rollno+"')";
         Cursor res = db.rawQuery(q, null);
         return res;
     }

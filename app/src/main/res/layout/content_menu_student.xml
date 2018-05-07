@@ -38,6 +38,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/search" />
 
+            <Button
+                android:id="@+id/advisorbutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FIND YOUR ADVISOR" />
+
         </LinearLayout>
     </ScrollView>
 
