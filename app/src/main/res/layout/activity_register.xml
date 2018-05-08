@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enter_your_details"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/roll_number"
+                    android:inputType="textCapCharacters" />
+
+                <EditText
+                    android:id="@+id/editText4r"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/first_name"
+                    android:inputType="textCapWords"
+                    android:selectAllOnFocus="true" />
+
+                <EditText
+                    android:id="@+id/editText5r"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/last_name"
+                    android:inputType="textCapWords"
+                    android:selectAllOnFocus="true" />
+
+                <EditText
+                    android:id="@+id/editText2r"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/semester"
+                    android:inputType="numberSigned" />
+
+                <EditText
+                    android:id="@+id/editText6r"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/date_of_birth"
+                    android:inputType="date"
+                    android:singleLine="false" />
+
+                <EditText
+                    android:id="@+id/editText3r"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/gender"
+                    android:inputType="textCapCharacters"
+                    android:selectAllOnFocus="false" />
+
+                <EditText
+                    android:id="@+id/editText9r"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/dept"
+                    android:inputType="textCapCharacters"
+                    android:selectAllOnFocus="true" />
+
+                <EditText
+                    android:id="@+id/editText8r"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/cgpa"
+                    android:inputType="numberDecimal" />
+
+                <EditText
+                    android:id="@+id/editText7r"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/fee_receipt_due"
+                    android:inputType="textCapCharacters"
+                    android:selectAllOnFocus="true" />
+
+                <EditText
+                    android:id="@+id/editText10r"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Set Password"
+                    android:inputType="textPassword" />
+
+                <Button
+                    android:id="@+id/buttoninsr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/submit" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
